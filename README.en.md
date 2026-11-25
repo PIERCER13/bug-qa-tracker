@@ -2,12 +2,12 @@
 
 # Piercer Bug & QA Tracker
 
-Registro de bugs com severidade, passos, prints em base64 e exportação Markdown para GitHub Issues
+Registro of bugs with severidade, steps, prints in base64 and exportação Markdown for GitHub Issues
 
 ## Features
 
-- **Main Sections**: Detalhes do Bug
-- **Available Actions**: Exportar JSON, + Reportar Bug, Excluir, Cancelar, Salvar
+- **Main Sections**: details of Bug
+- **Available Actions**: export JSON, + Reportar Bug, delete, Cancelar, save
 - **Auto-Save**: automatically persists changes in the browser (`localStorage`).
 - **Multi-Language**: built-in language switcher (`PT / EN / ES`).
 
