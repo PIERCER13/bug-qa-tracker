@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="piercer" />
+  <title>Piercer Bug & QA Tracker</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Piercer Bug &amp; QA Tracker</h1>
+      <p class="subtitle">Registro de bugs com severidade, passos, prints em base64 e exportação Markdown para GitHub Issues</p>
+    </div>
+    <div class="actions">
+      <button type="button" class="btn btn-ghost" id="btnExportJson">Exportar JSON</button>
+      <button type="button" class="btn btn-primary" id="btnNewBug">+ Reportar Bug</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="filters card">
+      <input type="search" id="searchInput" placeholder="Buscar por título, ambiente ou passo..." />
+      <select id="statusFilter">
+        <option value="all">Todos Status</option>
+        <option value="open">Aberto</option>
+        <option value="fixing">Em Correção</option>
+        <option value="testing">Testando</option>
+        <option value="resolved">Resolvido</option>
+      </select>
+      <select id="sevFilter">
+        <option value="all">Todas Severidades</option>
+        <option value="critical">Crítico</option>
+        <option value="high">Alto</option>
+        <option value="medium">Médio</option>
+        <option value="low">Baixo</option>
+      </select>
+    </section>
+
+    <section id="bugList" class="bug-list"></section>
+  </main>
+
+  <div class="modal-backdrop hidden" id="bugModal">
+    <div class="modal-card card">
+      <div class="modal-head">
+        <h2>Detalhes do Bug</h2>
+        <button type="button" class="btn btn-ghost" id="btnClose">✕</button>
+      </div>
+      <form id="bugForm" class="form-col">
+        <input type="hidden" id="bId" />
+        <div class="field"><label>Título</label><input type="text" id="bTitle" required placeholder="Ex: Erro 500 ao salvar checkout" /></div>
+        <div class="grid-3">
+          <div class="field"><label>Severidade</label><select id="bSev"><option value="critical">Crítico</option><option value="high">Alto</option><option value="medium" selected>Médio</option><option value="low">Baixo</option></select></div>
+          <div class="field"><label>Status</label><select id="bStatus"><option value="open">Aberto</option><option value="fixing">Em Correção</option><option value="testing">Testando</option><option value="resolved">Resolvido</option></select></div>
+          <div class="field"><label>Ambiente</label><input type="text" id="bEnv" placeholder="Win11 / Chrome 131 / Prod" /></div>
+        </div>
+        <div class="field"><label>Passos para Reproduzir</label><textarea id="bSteps" rows="4" placeholder="1. Abrir tela X&#10;2. Clicar em Y&#10;3. Observar erro Z"></textarea></div>
+        <div class="field"><label>Resultado Esperado vs. Atual</label><textarea id="bExpected" rows="2" placeholder="Esperado: salvar pedido. Atual: retorna erro 500."></textarea></div>
+        <div class="field">
+          <label>Anexar Print (opcional)</label>
+          <input type="file" id="bImg" accept="image/*" />
+          <img id="bImgPreview" class="preview-img hidden" alt="Preview do print" />
+        </div>
+        <div class="modal-foot">
+          <button type="button" class="btn btn-danger" id="btnDelete">Excluir</button>
+          <div style="display:flex;gap:8px;">
+            <button type="button" class="btn btn-ghost" id="btnCancel">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="./app.js"></script>
+  <script src='../piercer_i18n.js'></script>
+</body>
+</html>
