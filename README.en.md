@@ -18,6 +18,8 @@ Registro de bugs com severidade, passos, prints em base64 e exportação Markdow
 
 ## Project Files
 
+- `.git`
+- `.gitattributes`
 - `app.js`
 - `index.html`
 - `README.md`
