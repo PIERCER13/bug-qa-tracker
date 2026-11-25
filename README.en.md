@@ -22,6 +22,7 @@ Registro of bugs with severidade, steps, prints in base64 and exportação Markd
 - `.gitattributes`
 - `app.js`
 - `index.html`
+- `piercer_i18n.js`
 - `README.md`
 - `start.bat`
 - `styles.css`
